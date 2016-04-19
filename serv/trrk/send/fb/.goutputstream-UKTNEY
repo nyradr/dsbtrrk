@@ -1,0 +1,88 @@
+<?php
+
+DEFINE("DBHOST", "sql://mysql4.000webhost.com");
+DEFINE("DBUSER", "a5731981_usr");
+DEFINE("DBPASS", "TheP@assVPS");
+DEFINE("DBNAME", "a5731981_bdd");
+
+function connect(){
+    mysql_connect(DBHOST, DBUSER, DBPASS) or die("SQL connect error : " . mysql_error());
+    mysql_select_db(DBNAME) or die("SQL select db error : " . mysql_error()); 
+}
+
+//	extract data from csv list, separator will be '/'
+function csv_toarray($data){
+	$lst = array();
+	$il = 0;
+	$tmp = "";
+	
+	for($i = 0; $i < strlen($data); $i++){
+		if($data[$i] == '§'){
+			$lst[$il] = $tmp;
+			$il++;
+			$tmp = "";
+		}else
+			$tmp .= $data[$i];
+	}
+	
+	if($tmp != "")
+		$lst[$il] = $tmp;
+	
+	return $lst;
+}
+
+/*	Hash data with SHA-256
+*/
+function dhash($data){
+    return hash("sha256", $data);
+}
+
+function spost($id){
+    return $_POST[$id];
+}
+
+/*	Get database person ID in function of facebook id
+ * 	return null if fb id not found
+*/
+function getPersonId($fbid){
+    $query = "SELECT id FROM Pers WHERE idstr='$fbid'";
+    $ret = mysql_query($query);
+    
+    if($e = mysql_fetch_assoc($ret))
+		return $e['id'];
+	
+    return null;
+}
+
+function getPlaceId($fbid){
+	$query = "SELECT id FROM Place WHERE pname='$fbid'";
+    $ret = mysql_query($query);
+    
+    if($e = mysql_fetch_assoc($ret))
+		return $e['id'];
+	
+    return null;
+}
+
+function getWorkId($fbid){
+	$query = "SELECT id FROM Workplace WHERE wname='$fbid'";
+    $ret = mysql_query($query);
+    
+    if($e = mysql_fetch_assoc($ret))
+		return $e['id'];
+	
+    return null;
+}
+
+function getImgId($url){
+	$query = "SELECT id FROM Photo WHERE url='$url'";
+	
+	$ret = mysql_query($query);
+	
+	if($e = mysql_fetch_assoc($ret))
+		return $e["id"];
+		
+	return null;
+}
+
+?>
