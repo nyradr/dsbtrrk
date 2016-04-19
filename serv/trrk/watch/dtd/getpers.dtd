@@ -1,0 +1,23 @@
+<!ELEMENT pers (name, sexe, birth, lang, referenced?, places?, works?)>
+<!ATTLIST pers id ID #REQUIRED >
+<!ATTLIST pers idstr ID #REQUIRED >
+<!ELEMENT name (#PCDATA) >
+<!ELEMENT sexe (#PCDATA) >
+<!ELEMENT lang (#PCDATA) >
+
+<!ELEMENT referenced (ref*) >
+<!ELEMENT ref (friend, likeon, liked)>
+<!ATTLIST ref id ID #REQUIRED >
+<!ATTLIST ref total CDATA #REQUIRED>
+<!ELEMENT friend () >
+<!ATTLIST friend friend NOTATION (0 | 1) "0">
+<!ELEMENT likeon (#PCDATA) >
+<!ATTLIST likeon self CDATA #REQUIRED >
+<!ELEMENT liked (#PCDATA) >
+
+<!ELEMENT places (place*) >
+<!ELEMENT place (#PCDATA) >
+
+<!ELEMENT works (work*) >
+<!ELEMENT work (#PCDATA) >
+

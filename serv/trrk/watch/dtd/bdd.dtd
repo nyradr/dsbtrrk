@@ -1,0 +1,45 @@
+<!ELEMENT Facebook (Persons, Friends, Places, Workplaces, Photos) >
+<!ELEMENT Persons (pers*) >
+
+<!ELEMENT pers (rname, sexe, birth, lang, live) >
+<!ATTLIST pers uid ID #REQUIRED >
+
+<!ELEMENT rname (#PCDATA) >
+<!ELEMENT sexe (#PCDATA) >
+<!ELEMENT birth (#PCDATA) >
+<!ELEMENT lang (#PCDATA) >
+<!ELEMENT live (idplace*) >
+<!ELEMENT idplace () >
+<!ATTLIST idplace rid IDREF #REQUIRED >
+<!ELEMENT workat (idwork*) >
+<!ELEMENT idwork () >
+<!ATTLIST rid IDREF #REQUIRED >
+
+<!ELEMENT Friends(friend*) >
+<!ELEMENT friend (id1, id2) >
+<!ELEMENT id1 () >
+<!ATTLIST id1 rid IDREF #REQUIRED >
+<!ELEMENT id2 () >
+<!ATTLIST id2 rid IDREF #REQUIRED >
+
+<!ELEMENT Places (place*) >
+<!ELEMENT place (pname, ptype) >
+<!ATTLIST place uid ID #REQUIRED >
+<!ELEMENT pname (#PCDATA) >
+<!ELEMENT ptype (#PCDATA) >
+
+<!ELEMENT Workplaces (workplace*) >
+<!ELEMENT workplace (wname, wtype) >
+<!ATTLIST workplace id ID (#REQUIRED) >
+<!ELEMENT wname (#PCDATA) >
+<!ELEMENT wtype (#PCDATA) >
+
+<!ELEMENT Photos (photo*) >
+<!ELEMENT photo (postby, datep, img, likes) >
+<!ATTLIST photo id ID #REQUIRED >
+<!ELEMENT postby (#PCDATA) >
+<!ELEMENT datep (#PCDATA) >
+<!ELEMENT img (#PCDATA) >
+<!ELEMENT likes (id*) >
+<!ELEMENT id () >
+<!ATTLIST id IDREF #REQUIRED >

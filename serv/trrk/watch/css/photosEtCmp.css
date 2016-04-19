@@ -1,0 +1,23 @@
+#listPhotos table, #commonFriend table {
+    border-collapse: collapse;
+}
+
+#listPhotos td, th, #commonFriend td {
+    border: 1px solid black;
+}
+
+#commonFriend table {
+	text-align: center;
+	margin-left: auto;
+    margin-right: auto;
+}
+body {
+                margin: 0px;
+                padding: 0px;
+}
+
+#radar {
+                width : 600px;
+                height: 384px;
+                margin: 8px auto;
+}

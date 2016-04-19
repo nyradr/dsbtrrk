@@ -1,0 +1,3 @@
+<!ELEMENT idstr (id*) >
+<!ELEMENT id (#PCDATA) >
+<!ELEMENT id id CDATA #REQUIRED >

@@ -1,0 +1,11 @@
+header{
+	height:8%;
+	text-align:center;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+
+a:visited{
+	color: hotpink
+}
