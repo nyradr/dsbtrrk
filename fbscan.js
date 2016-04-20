@@ -430,7 +430,7 @@ function scan(){
 	
 	//TODO : mettre les identifiants à la main et en clair	(provisoire)
 	//			dans l'ordre : id du moint de départ != de celui du compte, email du compte, mot de passe 
-	scan.start("mylene.loury.3", "fscan@gmx.fr", "FbScanner");
+	scan.start("id", "mail", "mdp");
 }
 
 exports.scan = scan;
