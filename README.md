@@ -17,6 +17,12 @@ function scan(){
 }
 </pre></code>
 
+Also replace by a mysql connexion in serv/trrk/send/fb/utils.php
+<pre><code>
+/// OPEN MYSQL CONNEXTION
+</code></pre>
+And connexions constants in serv/trrk/watch/utils.php
+
 To compile the module run the command
 <pre><code>
 jpm xpi
@@ -27,5 +33,5 @@ The only way to stop the scan after it launch is to close every tabs.<br>
 
 #Data utilisation:
 
-Data utilisation is in serv/trrk/watch<br>
+Sample of data utilisation is in serv/trrk/watch<br>
 A possible entry point is statistics.js : <code>host/trrk/watch/statistics.js</code>
