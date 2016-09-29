@@ -3,42 +3,42 @@
 include_once("utils.php");
 include_once("draw.php");
 
-connect();
+$db = coPDO();
 
 $sql = "SELECT COUNT(*) FROM Pers";
-$totalPers = mysql_result(mysql_query($sql), 0);
+$totalPers = $db->query($sql)->fetchColumn(0);
 		
 $sql = "SELECT COUNT(*) FROM Pers WHERE birth IS NOT NULL";
-$fullScan = mysql_result(mysql_query($sql), 0);
+$fullScan = $db->query($sql)->fetchColumn(0);
 		
 $sql = "SELECT COUNT(*) FROM Friend";
-$friends = mysql_result(mysql_query($sql), 0);
+$friends = $db->query($sql)->fetchColumn(0);
 		
 $sql = "SELECT COUNT(*) FROM Photo";
-$photos = mysql_result(mysql_query($sql), 0);
+$photos = $db->query($sql)->fetchColumn(0);
 		
 $sql = "SELECT COUNT(*) FROM Phlike";
-$likes = mysql_result(mysql_query($sql), 0);
+$likes = $db->query($sql)->fetchColumn(0);
 		
 $sql = "SELECT COUNT(*) FROM Place";
-$places = mysql_result(mysql_query($sql), 0);
+$places = $db->query($sql)->fetchColumn(0);
 		
 $sql = "SELECT COUNT(*) FROM Live";
-$live = mysql_result(mysql_query($sql), 0);
+$live = $db->query($sql)->fetchColumn(0);
 		
 $sql = "SELECT COUNT(*) FROM Workplace";
-$workplace = mysql_result(mysql_query($sql), 0);
+$workplace = $db->query($sql)->fetchColumn(0);
 		
 $sql = "SELECT COUNT(*) FROM Workat";
-$workat = mysql_result(mysql_query($sql), 0);
+$workat = $db->query($sql)->fetchColumn(0);
 
 $sql = "SELECT AVG(moy) FROM (SELECT Photo.postby, COUNT(Photo.postby) AS moy FROM Photo GROUP BY Photo.postby) a";
-$moyPhoto = round(mysql_result(mysql_query($sql), 0));
+$moyPhoto = round($db->query($sql)->fetchColumn(0););
 
 $sql = 'SELECT COUNT(*) FROM Photo WHERE'
         . ' Photo.postby NOT IN'
         . ' (SELECT Phlike.pers FROM Phlike)';
-$phwl = mysql_result(mysql_query($sql), 0);
+$phwl = $db->query($sql)->fetchColumn(0);
 
 mysql_close();
 ?>
