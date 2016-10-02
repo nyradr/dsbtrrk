@@ -17,7 +17,6 @@ include_once "draw.php";
 drawHeader();
 
 if (isset($_GET['id'])) {
-    connect();
     coPDO();
     $GLOBALS['db']->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $id = $_GET['id'];

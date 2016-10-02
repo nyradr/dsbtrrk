@@ -33,14 +33,13 @@ $sql = "SELECT COUNT(*) FROM Workat";
 $workat = $db->query($sql)->fetchColumn(0);
 
 $sql = "SELECT AVG(moy) FROM (SELECT Photo.postby, COUNT(Photo.postby) AS moy FROM Photo GROUP BY Photo.postby) a";
-$moyPhoto = round($db->query($sql)->fetchColumn(0););
+$moyPhoto = round($db->query($sql)->fetchColumn(0));
 
 $sql = 'SELECT COUNT(*) FROM Photo WHERE'
         . ' Photo.postby NOT IN'
         . ' (SELECT Phlike.pers FROM Phlike)';
 $phwl = $db->query($sql)->fetchColumn(0);
 
-mysql_close();
 ?>
 
 <html>

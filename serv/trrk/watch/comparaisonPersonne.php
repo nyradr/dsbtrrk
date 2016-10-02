@@ -2,7 +2,6 @@
 include_once "Flotr2Util.php";
 include_once "utils.php";
 include_once "draw.php";
-connect();
 coPDO();
 ?>
 
@@ -92,7 +91,6 @@ coPDO();
 <?php
         drawHeader();
         if (isset($_GET['id1']) && isset($_GET['id2']) ) {
-            connect();
             coPDO();
             $GLOBALS['db']->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $id1 = $_GET['id1'];

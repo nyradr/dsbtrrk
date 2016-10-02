@@ -208,7 +208,6 @@ class PersonRef{
 }
 
 if(	isset($_GET["id"])	){
-	connect();
 	coPDO();
 	
 	$id = $_GET["id"];
