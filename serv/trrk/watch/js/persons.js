@@ -125,7 +125,7 @@ function getPersonIdstr(url){
 	if(url){
 		var persInfo = getRequestSync(url);
 		
-		if(!persInfo.contains("NOTHING")){			
+		if(persInfo.indexOf("NOTHING") < 0){			
 			if(window.DOMParser){
 				var parser = new DOMParser();
 				return parser.parseFromString(persInfo, "text/xml");;

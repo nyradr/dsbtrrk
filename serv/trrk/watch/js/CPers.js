@@ -4,7 +4,7 @@ function getPerson(infosUrl){
 		
 		persInfo = getRequestSync(infosUrl);
 		
-		if(!persInfo.contains("NOTHING")){			
+		if(!persInfo.indexOf("NOTHING") < 0){			
 			if(window.DOMParser){
 				var parser = new DOMParser();
 				return parser.parseFromString(persInfo, "text/xml");;
