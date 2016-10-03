@@ -19,8 +19,8 @@ function spost($id){
  * 	return null if fb id not found
 */
 function getPersonId($fbid){
-    $query = "SELECT id FROM Pers WHERE idstr= :id";
-    $stmt = $GLOABLS['db']->prepare($sql);
+    $sql = "SELECT id FROM Pers WHERE idstr= :id";
+    $stmt = $GLOBALS['db']->prepare($sql);
     $stmt->bindParam(":id", $fbid);
     
     $stmt->execute();
